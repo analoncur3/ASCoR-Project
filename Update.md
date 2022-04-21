@@ -43,6 +43,3 @@ From these outputs we can see a few spikes, the most notable one occuring
 
 > **THOUGHTS ON DATA SO FAR: until I hear back from Mediacloud about the discrepancy between storycount and retrieved urls I feel a bit uneasy about the data. When emailing with Wai Lam, they said the support team was very helpful when they contacted them last year. If it turns out there's a serious problem with the current database, they might do periodic backups so maybe they could be able to pull the data we need from one of those. We also only got 80% of Washington Post stories through NewsPlease, but we have access to the Washington Post through the UvA, see [here](https://go.gale.com/ps/i.do?p=AONE&u=amst&id=GALE%7C2PST&v=2.1&it=aboutJournal). The stories can only be downloaded one by one though but I checked the html and I think we could potentially scrape it. I think that even with these potential data issues, we now have a corpus to play around with and we can always include more data later on and re-run the analysis**.
 
-
-
-
