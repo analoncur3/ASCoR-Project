@@ -1,6 +1,5 @@
-# Voter-ID-US-News-Media
+# Analysis of US News Media Coverage of Voter ID
 
-This is a repository that contains scripts used to download US News Media data.
 
 ## Data
 -	**Sources**:
