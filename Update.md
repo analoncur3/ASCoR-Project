@@ -45,7 +45,7 @@ From these outputs we can see a few spikes. The first of these happens around Ju
 
 14. To get a sense of the coverage content I analysed the titles using the quanteda package in R. See below the top words
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/89010445/164459455-1bbaebd3-e608-40cb-892c-78014da4ef27.PNG" alt="Sublime's custom image"/, style="width:400px;">
+  <img src=https://user-images.githubusercontent.com/89010445/164459967-1bfb84ab-3491-4250-8861-fe2f235d2f08.PNG alt="Sublime's custom image"/, style="width:400px;">
 </p>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/89010445/164459457-353f4efd-8a93-4039-81f8-026a4287d9a4.PNG" alt="Sublime's custom image"/, style="width:400px;">
