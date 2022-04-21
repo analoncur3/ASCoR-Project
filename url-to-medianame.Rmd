@@ -1,0 +1,103 @@
+---
+title: "US News Media combine"
+output: html_document
+---
+
+```{r}
+library(readtext)
+library(tidyverse)
+
+datadir <- "C:/Users/analo/OneDrive - University of Glasgow/University of Glasgow/Amsterdam Visit/Project/Data/Combined/"
+```
+
+```{r setup, include=FALSE}
+mediacloud <- read_csv(paste0(datadir, "Mediacloud.csv"))
+nexis <- read_csv(paste0(datadir, "Nexisarticles.csv"))
+
+```
+```{r}
+colnames(mediacloud)
+colnames(nexis)
+```
+```{r}
+library(tidyverse)
+library(inops)
+
+mediacloud2 <- mediacloud %>% 
+  mutate(
+    Source = case_when(
+      url %in~% "cnn" ~ "CNN",
+      url %in~% "washingtontimes" ~ "Washington Times",
+      url %in~% "WashingtonTimes" ~ "Washington Times",
+      url %in~% "nbc" ~ "NBC News",
+      url %in~% "fox" ~ "Fox News",
+      url %in~% "breitbart" ~ "Breitbart",
+      url %in~% "washingtonpost" ~ "Washington Post",
+      url %in~% "nypost" ~ "NY Post",
+      url %in~% "decider" ~ "NY Post",
+      url %in~% "today.com" ~ "NBC News",
+      T ~ NA_character_
+    )
+  )
+
+```
+
+```{r}
+mediacloud2 <- mediacloud2[!is.na(mediacloud2$Source),]
+mediacloud2 %>% count(Source)
+```
+```{r}
+colnames(mediacloud2)
+```
+```{r}
+# removing unwanted columns
+mc <- select(mediacloud2, -c(authors, date_download, description, filename, source_domain, date_modify, image_url, language, localpath, text, title_page, title_rss, url, source,))
+
+
+# renaming columns
+names(mc)[names(mc) == "date_publish"] <- "date"
+names(mc)[names(mc) == "maintext"] <- "text"
+
+# checking column names
+colnames(mc)
+```
+
+## Nexis Data
+
+```{r}
+# Delete Sources we dont need
+nexis %>% count(Source) 
+nytimes <- subset(nexis, Source==c("The New York Times"))
+msnbc <- subset(nexis, Source==c("MSNBC"))
+usa <- subset(nexis, Source==c("USA Today"))
+nexis1 <- rbind(nytimes, msnbc, usa)
+
+```
+
+```{r}
+colnames(nexis1)
+nx <- select(nexis1, -c(ID, Source_File, Length, Section, Author, Edition, Graphic, Newspaper,))
+colnames(nx)
+
+
+# renaming columns
+names(nx)[names(nx) == "Headline"] <- "title"
+names(nx)[names(nx) == "Article"] <- "text"
+names(nx)[names(nx) == "Date"] <- "date"
+
+nx <- nx[, c("date", "text", "title", "Source")]
+```
+```{r}
+# combining 2 dataframes
+corpus <- rbind(mc, nx)
+corpus %>% count(Source) 
+
+```
+```{r}
+write.csv(corpus,"Corpus.csv", row.names = FALSE)
+```
+
+```{r}
+nrow(corpus[corpus$date == "None",])
+```
+

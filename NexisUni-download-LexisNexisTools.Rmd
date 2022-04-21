@@ -1,0 +1,62 @@
+---
+title: "New York Times (Nexis Uni)"
+output: rmarkdown::github_document
+---
+
+```{r}
+install.packages("LexisNexisTools")
+library(LexisNexisTools)
+
+```
+
+```{r}
+LNToutput <- lnt_read(x = getwd())
+
+```
+
+```{r}
+meta_df <- LNToutput@meta
+articles_df <- LNToutput@articles
+paragraphs_df <- LNToutput@paragraphs
+
+# Print meta to get an idea of the data
+head(meta_df, n = 3)
+```
+
+```{r}
+meta_articles_df <- lnt_convert(LNToutput, to = "data.frame")
+
+# Or keep the paragraphs
+meta_paragraphs_df <- lnt_convert(LNToutput, to = "data.frame", what = "Paragraphs")
+```
+
+```{r}
+meta_articles_df
+```
+
+
+
+```{r}
+install.packages("tidyverse")
+install.packages("inops")
+library(tidyverse)
+library(inops)
+```
+
+```{r}
+articles <- meta_articles_df %>% 
+  mutate(
+    Source = case_when(
+      Newspaper %in~% "CNN" ~ "CNN",
+      Newspaper %in~% "MSNBC" ~ "MSNBC",
+      Newspaper %in~% "New York Times" ~ "The New York Times",
+      Newspaper %in~% "Fox" ~ "Fox News",
+      T ~ NA_character_
+    )
+  )
+
+write.csv(articles,"articles.csv", row.names = FALSE)
+```
+
+
+
