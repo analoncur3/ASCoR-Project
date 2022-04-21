@@ -1,6 +1,5 @@
 # Analysis of US News Media Coverage of Voter ID
-
-
+This is a repository that contains files associated to the ASCoR research visit project.
 ## Data
 -	**Sources**:
 
