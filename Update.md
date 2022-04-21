@@ -44,3 +44,11 @@ From these outputs we can see a few spikes. The first of these happens around Ju
 > **THOUGHTS ON DATA SO FAR: until I hear back from Mediacloud about the discrepancy between storycount and retrieved urls I feel a bit uneasy about the data. When emailing with Wai Lam, they said the support team was very helpful when they contacted them last year. If it turns out there's a serious problem with the current database, they might do periodic backups so maybe they could be able to pull the data we need from one of those. We also only got 80% of Washington Post stories through NewsPlease, but we have access to the Washington Post through the UvA, see [here](https://go.gale.com/ps/i.do?p=AONE&u=amst&id=GALE%7C2PST&v=2.1&it=aboutJournal). The stories can only be downloaded one by one though but I checked the html and I think we could potentially scrape it. I think that even with these potential data issues, we now have a corpus to play around with and we can always include more data later on and re-run the analysis**.
 
 14. To get a sense of the coverage content I analysed the titles using the quanteda package in R. See below the top words
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/89010445/164459455-1bbaebd3-e608-40cb-892c-78014da4ef27.PNG" alt="Sublime's custom image"/, style="width:400px;">
+</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/89010445/164459457-353f4efd-8a93-4039-81f8-026a4287d9a4.PNG" alt="Sublime's custom image"/, style="width:400px;">
+</p>
+
+
