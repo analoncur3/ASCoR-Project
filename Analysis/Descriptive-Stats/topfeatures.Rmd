@@ -1,0 +1,127 @@
+---
+title: "US Media_Apr22"
+output: html_document
+---
+
+
+First we install the relevant libraries.
+```{r, message=FALSE}
+install.packages("readtext")
+library(readtext)
+library(tidyverse)
+library(inops)
+library(ggplot2)
+library(quanteda)
+require(quanteda)
+require(quanteda.textmodels)
+require(quanteda.textstats)
+require(quanteda.textplots)
+library(quanteda.textplots)
+
+help(quanteda.textplots)
+```
+```{r}
+install.packages("quanteda.textmodels")
+install.packages("quanteda.textstats")
+install.packages("quanteda.textplots")
+library(quanteda.textmodels)
+library(quanteda.textstats)
+library(quanteda.textplots)
+```
+
+Then we load the data. We are loading data that has been pre-processed and lemmatised in Python. Words with a frequency less than 3 were also removed from the corpus.
+
+
+```{r,  message=FALSE}
+# set working directory
+datadir <- "C:/Users/analo/OneDrive - University of Glasgow/University of Glasgow/Amsterdam Visit/Voter-ID-US-News-Media/Descriptives/"
+df <- readtext(paste0("finalcorpus.csv"), text_field = "title")
+```
+
+
+
+Then we create the corpus and divide this in two for Democratic and Republican statements
+
+```{r, warning = FALSE}
+corpus <- corpus(df)
+corp_sub <- corpus_subset(corpus, ideology %in% c('right','left'))
+corp_r <- corpus_subset(corpus, ideology %in% c('right'))
+corp_l<- corpus_subset(corpus, ideology %in% c('left'))
+```
+
+We create a tokens object. tokens() segments texts in a corpus into tokens (words or sentences) by word boundaries. By default, tokens() only removes separators (typically whitespaces).
+
+```{r}
+tokens <- tokens(corpus, remove_punct = TRUE, remove_symbols = TRUE, remove_numbers = TRUE)%>%
+  tokens_compound(pattern = phrase(c('U S', 'north carolina')))%>%
+  tokens_select(pattern = c("advertisement", "u"), selection = "remove")%>%
+  tokens_replace(c("id"), c("identification"))%>%
+  tokens_group(groups = ideology) %>%
+  tokens()
+
+tokens <- tokens_select(tokens, pattern = stopwords("en"), selection = "remove")
+```
+
+```{r}
+toks_sub <- tokens(corp_sub, remove_punct = TRUE, remove_symbols = TRUE, remove_numbers = TRUE)%>%
+  tokens_compound(pattern = phrase(c('U S', 'north carolina', 'john lewis')))%>%
+  tokens_select(pattern = c("advertisement","story","continues","fox","news", "u"), selection = "remove")%>%
+  tokens_replace(c("id"), c("identification"))%>%
+  #tokens_replace(c("vra"), c("voting_right_act"))%>%
+  tokens()
+
+toks_sub <- tokens_select(tokens, pattern = stopwords("en"), selection = "remove")
+
+```
+
+Then we create a dataframe
+```{r}
+dfm <- dfm(tokens)
+dfm_sub <- dfm(toks_sub)
+```
+
+#### Top words
+
+We plot top features:
+
+```{r, fig.width=10, fig.height=8, fig.align="center"}
+freq <- textstat_frequency(dfm, n = 20)
+ggplot(data = freq, aes(x = nrow(freq):1, y = frequency)) +
+geom_point() +
+facet_wrap(~ group, scales = "free") +
+coord_flip() +
+scale_x_continuous(breaks = nrow(freq):1,
+labels = freq$feature) +
+labs(x = NULL, y = "word frequency")
+```
+
+### Wordcloud by ideology
+```{r, fig.width=10, fig.height=8, fig.align="center"}
+wordcloud_dfm_comp<-dfm_group(dfm_sub, groups = ideology)
+textplot_wordcloud(dfm_trim(wordcloud_dfm_comp, min_termfreq = 15, max_words = 40), comparison = TRUE, color = c("blue", "red"))
+
+```
+
+#### Keyness analysis 
+A keyness analysis is first conducted to identify which words are more frequently used by Republicans when discussing voter ID compared to Democrats. Keyness is a statistical index used to evaluate how significant a word is to a document. The statistical significance of the frequency difference is reported through Chi-Squared values. Positive values mean that the keyword appears more often than would be expected by chance in comparison with the reference corpus (i.e. Democratic speeches). Likewise, a word which is negatively key occurs less often than would be expected.
+
+```{r, fig.width=13, fig.height=8, fig.align="center"}
+# Calculate keyness 
+result_keyness <- textstat_keyness(dfm_sub, target = , measure = c("chi2"),sort = TRUE)
+
+toks_news <- tokens(corp_news, remove_punct = TRUE) 
+dfmat_news <- dfm(toks_news)
+ 
+tstat_key <- textstat_keyness(dfmat_news, 
+                              target = year(dfmat_news$date) >= 2016)
+textplot_keyness(tstat_key)
+```
+
+
+
+```{r, fig.width=12, fig.height=10, fig.align="center"}
+# Plot estimated word keyness
+textplot_keyness(result_keyness, labelsize = 4,labelcolor = "black", color = c("blue", "red"), min_count = 10, n = 25)
+
+
+```
