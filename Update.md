@@ -51,4 +51,4 @@ From these outputs we can see a few spikes. The first of these happens around Ju
   <img src="https://user-images.githubusercontent.com/89010445/164460168-81caa215-1916-4a1d-8590-56612b872349.PNG" alt="Sublime's custom image"/, style="width:400px;">
 </p>
 
-
+The top words of each group already indicate the presence of some of the frames used by politicians. For example, the prevalence of the terms *rights, restrictions, black, latino, suppression, restrict, supreme court* highlight left-leaning media frame voter ID as a disenfranchising policy. Top words of right-leaning media such as *bill* and *democrats* might highlight their coverage of the new accessibility bill proposed by Democrats last year. Other words such as *integrity, security, rigged* indicate they might be framing voter ID similarly to Republican political elites. Other terms related to voting by mail and the coronavirus pandemic might indicate the presence of narratives around voter fraud pushed by Trump during his final campaign.
