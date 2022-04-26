@@ -1,11 +1,14 @@
 ---
 title: "US News Media combine"
-output: html_document
+output: github_document
 ---
 
 ```{r}
 library(readtext)
 library(tidyverse)
+install.packages("rmarkdown")
+library(markdown)
+
 
 datadir <- "C:/Users/analo/OneDrive - University of Glasgow/University of Glasgow/Amsterdam Visit/Project/Data/Combined/"
 ```
