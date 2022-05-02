@@ -42,5 +42,6 @@ We select mass-market/top news media identified in these studies.
 
 
 ## Strategy:
-- We collect urls via MediaCloud API and extract article data using NewsPlease[P]
+- We collect urls via MediaCloud API and extract article data in Python using [NewsPlease](https://github.com/fhamborg/news-please)
+- We use NexisUni to extract article data in R using [LexisNexisTools](https://github.com/JBGruber/LexisNexisTools)
 
