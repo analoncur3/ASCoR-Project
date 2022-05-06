@@ -21,14 +21,17 @@ I also plotted articles by time to find potential spikes in coverage. We can see
 </p>
 
 ## Title analysis
-To get a sense of the coverage content I analysed the titles using the quanteda package in R. See below the top words
+To get a sense of the coverage content I analysed the titles using the quanteda package in R. I did some standard pre-processing to remove noise, I removed punctuation, symbols, stop words, compounded U S to U_S, north_carolina, removed the terms 'advertisement' and 'u' (which was left from emojis) and changed instances of 'id' to 'identification'. See below the top words: 
 <p align="center">
-  <img src=https://user-images.githubusercontent.com/89010445/164459967-1bfb84ab-3491-4250-8861-fe2f235d2f08.PNG alt="Sublime's custom image"/, style="width:400px;">
-</p>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/89010445/164460168-81caa215-1916-4a1d-8590-56612b872349.PNG" alt="Sublime's custom image"/, style="width:400px;">
+  <img src=https://user-images.githubusercontent.com/89010445/167095865-b4a20fe7-21f1-48c2-af3e-6b0d6023c322.PNG alt="Sublime's custom image"/, style="width:400px;">
 </p>
 
-The top words of each group already indicate the presence of some of the frames used by politicians. For example, the prevalence of the terms *rights, restrictions, black, latino, suppression, restrict, supreme court* highlight left-leaning media frame voter ID as a disenfranchising policy. Top words of right-leaning media such as *bill* and *democrats* might highlight their coverage of the new accessibility bill proposed by Democrats last year. Other words such as *integrity, security, rigged* indicate they might be framing voter ID similarly to Republican political elites. Other terms related to voting by mail and the coronavirus pandemic might indicate the presence of narratives around voter fraud pushed by Trump during his final campaign.
+We can see further allignment between media and politics by the prevalence of both terms 'democrats' and 'republicans'/'gop', theres also an indication that the key voter ID frames identified in the literature are present in news coverage (voter suppression and voter fraud) with the prevalence of the terms 'rights' and 'fraud'. We can see Trump appears as one of the top features, which might indicate his role in spreading false voter fraud narratives in his presidential campaigns, specially his last one. The presence of the terms 'court' and 'bill' might indicate coverage is also focusing on the legal aspects of voter ID.
+
+I then used the quanteda textplot_wordcloud function to compare top features by media ideology.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/89010445/167094957-f2b1e923-5344-4ba3-9acd-944e357ba562.PNG" alt="Sublime's custom image"/, style="width:400px;">
+</p>
+The top words of each group further indicate the presence of some of the frames used by politicians I identified in congressional speeches on voter ID. For example, the prevalence of the terms *rights, restrictions, impact, race, black, latino, suppression, restrict, supreme court* highlight left-leaning media frame voter ID as a disenfranchising policy. Top words of right-leaning media such as *bill* and *democrats* might highlight their coverage of the new accessibility bill proposed by Democrats last year. Other words such as *integrity, security, rigged* indicate they might be framing voter ID similarly to Republican political elites. Other terms related to voting by mail and the coronavirus pandemic might indicate the presence of narratives around voter fraud pushed by Trump during his final campaign.
 
 
