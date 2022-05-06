@@ -9,5 +9,4 @@ Word level:
 - Find top bigrams
 - Find top words
 - Find top entities/people (POS tagging)
-
-- Create a lemmatised corpus
+- Create a lemmatised pre-processed corpus
