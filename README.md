@@ -41,7 +41,9 @@ We select mass-market/top news media identified in these studies.
 - **Key terms**: To find appropriate search terms, I used Mediacloud's ‘Explorer’ option to instantly analyse how digital news media covers voter fraud and voter suppression, the two partisan frames identified in the literature. I selected coverage during the 2016 US Presidential campaign period (August 1, 2016 – January 1, 2017), in U.S. Top Online News 2017 (Top 32 news websites of the year by August 2017 in the United States, according to data from comScore, Activate and Alexa) and cross-checked identical words in the top 10 words associated to each query. The presence of ‘voter ID’ and ‘ID’ as top terms in both the search terms “voter fraud” and “voter suppression” suggests using voter ID (and variations of it) as a key search term could be a good approach to identify frames.
 
 
-## Strategy:
+## Data Collection Strategy:
 - We collect urls via MediaCloud API and extract article data in Python using [NewsPlease](https://github.com/fhamborg/news-please)
 - We use NexisUni to extract article data in R using [LexisNexisTools](https://github.com/JBGruber/LexisNexisTools)
 
+
+## Methodology:
