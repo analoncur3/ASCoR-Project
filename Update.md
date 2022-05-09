@@ -23,32 +23,11 @@ I thought I could write up here what I've been up to since we last met as its be
   - Left-wing news media: *The Washington Post, The New York Times, CNN, NBC News, USA Today* and *Huffington Post*.
 11. Seeing only 14 *The New York Times* stories were collected via NewsPlease, we get the stories via NexisUni using LexisNexisTools (1097 stories found - excluding duplicates). We combine this data with the mediacloud data, which results in **4491** documents, 2768 from left wing media and 1723 from right wing media.
 12. After again removing articles without a date of the NY Times (nexisuni) data, the final corpus ends up being **4485** documents.
-13. I then sorted the data by Congress. My initial thoughts after seeing the barplot below is how similar this descriptive data looks compared to corpus of Congressional speeches. We can see more left-wing articles about voter ID in the first few congresses, with more and more articles from right-wing media during more recent congressional sessions.
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/89010445/163991662-3922664b-d5d7-4d16-8382-1f5f7f245317.PNG" alt="Sublime's custom image"/, style="width:300px;">
-</p>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/89010445/163992071-50345db5-9850-4381-a0bd-2d64d794806c.png" alt="Sublime's custom image"/, style="width:300px;">
-</p>
-14. I then tried plotting the articles by time and realised theres 24 articles published before 2013. I think this happened when the articles were retrieved via NewsPlease so I removed these from the corpus, total documents now **4467**, with a total of **6371235** words.
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/89010445/164411991-dfa7c0fa-09b5-4da4-9c00-5a926331962c.png" alt="Sublime's custom image"/, style="width:600px;">
-</p>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/89010445/164226306-ded712f4-92bf-417b-bafe-74b6ece9584f.PNG" alt="Sublime's custom image"/, style="width:600px;">
-</p>
-
-From these outputs we can see a few spikes. The first of these happens around June 2013, which is when the Shelby Count vs Holder Supreme Court case decision was made. The next spikes happen around the 2014, 2016, 2018 and 2020 US elections. The biggest spike happens in Jan 2021. There is a drastic increase in right-wing media coverage, perhaps responding to the introduction of the For the People Act bill Democrats at the start of the 117th Congress.
-
+13. I then tried plotting the articles by time and realised theres 24 articles published before 2013. I think this happened when the articles were retrieved via NewsPlease so I removed these from the corpus, total documents now **4467**, with a total of **6371235** words.
 
 > **THOUGHTS ON DATA SO FAR: until I hear back from Mediacloud about the discrepancy between storycount and retrieved urls I feel a bit uneasy about the data. When emailing with Wai Lam, they said the support team was very helpful when they contacted them last year. If it turns out there's a serious problem with the current database, they might do periodic backups so maybe they could be able to pull the data we need from one of those. We also only got 80% of Washington Post stories through NewsPlease, but we have access to the Washington Post through the UvA, see [here](https://go.gale.com/ps/i.do?p=AONE&u=amst&id=GALE%7C2PST&v=2.1&it=aboutJournal). The stories can only be downloaded one by one though but I checked the html and I think we could potentially scrape it. I think that even with these potential data issues, we now have a corpus to play around with and we can always include more data later on and re-run the analysis**.
 
-14. To get a sense of the coverage content I analysed the titles using the quanteda package in R. See below the top words
-<p align="center">
-  <img src=https://user-images.githubusercontent.com/89010445/164459967-1bfb84ab-3491-4250-8861-fe2f235d2f08.PNG alt="Sublime's custom image"/, style="width:400px;">
-</p>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/89010445/164460168-81caa215-1916-4a1d-8590-56612b872349.PNG" alt="Sublime's custom image"/, style="width:400px;">
-</p>
+14. I received the following response from Mediacloud (06/05):
 
-The top words of each group already indicate the presence of some of the frames used by politicians. For example, the prevalence of the terms *rights, restrictions, black, latino, suppression, restrict, supreme court* highlight left-leaning media frame voter ID as a disenfranchising policy. Top words of right-leaning media such as *bill* and *democrats* might highlight their coverage of the new accessibility bill proposed by Democrats last year. Other words such as *integrity, security, rigged* indicate they might be framing voter ID similarly to Republican political elites. Other terms related to voting by mail and the coronavirus pandemic might indicate the presence of narratives around voter fraud pushed by Trump during his final campaign.
+*"Unfortunately our system is experiencing ongoing technical challenges that include discrepancies in story count and story download. Our hypothesis is this has to do with the ways data is captured between our search system (Solr) that returns the counts, and the content system (Postgres) that houses the articles. This is one among several technical issues that we are currently working on.
+Again, our apologies for the inconvenience caused by the technical challenges at present. We are working hard to resolve them as quickly as possible for the research community using our tools."*
