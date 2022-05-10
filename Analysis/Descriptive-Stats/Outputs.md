@@ -25,11 +25,13 @@ I also plotted articles by time to find potential spikes in coverage. We can see
 - 
 
 ## Title analysis
+#### Top features
 To get a sense of the coverage content I analysed the titles using the quanteda package in R. I did some standard pre-processing to remove noise, I removed punctuation, symbols, stop words, compounded U S to U_S, north_carolina, removed the terms 'advertisement' and 'u' (which was left from emojis) and changed instances of 'id' to 'identification'. See below the top words: 
 <p align="center">
   <img src=https://user-images.githubusercontent.com/89010445/167095865-b4a20fe7-21f1-48c2-af3e-6b0d6023c322.PNG alt="Sublime's custom image"/, style="width:400px;">
 </p>
 
+#### Wordcloud by ideology
 We can see further allignment between media and politics by the prevalence of both terms 'democrats' and 'republicans'/'gop', theres also an indication that the key voter ID frames identified in the literature are present in news coverage (voter suppression and voter fraud) with the prevalence of the terms 'rights' and 'fraud'. We can see Trump appears as one of the top features, which might indicate his role in spreading false voter fraud narratives in his presidential campaigns, specially his last one. The presence of the terms 'court' and 'bill' might indicate coverage is also focusing on the legal aspects of voter ID.
 
 I then used the quanteda textplot_wordcloud function to compare top features by media ideology.
@@ -38,8 +40,29 @@ I then used the quanteda textplot_wordcloud function to compare top features by 
 </p>
 The top words of each group further indicate the presence of some of the frames used by politicians I identified in congressional speeches on voter ID. For example, the prevalence of the terms *rights, restrictions, impact, discrimination, turnout, race, black, latino, suppression, restrict* highlight left-leaning media frame voter ID as a disenfranchising policy. Top words of right-leaning media such as *h.r, bill* and *democrats* might highlight their coverage of the new accessibility bill proposed by Democrats last year. Other words such as *integrity, security, rigged* indicate they might be framing voter ID similarly to Republican political elites. Other terms related to voting by mail and the coronavirus pandemic might indicate the presence of narratives around voter fraud pushed by Trump during his final campaign. I find interesting that 'trump' is associated to left-wing media discourse, showing his claims might have been paraphrased or quoted to undermine their validity, which raises questions around whether this might have instead helped amplify false voter fraud narratives. 
 
-I found this preliminary title analysis also useful to understand the corpus a bit better. I explored some of these top words using the KWIC function, for example 'opinion', to see whether they are relevant to the corpus or result from the opinion headline in news media being captured as text. I find that this is sometimes the case, when it appears capitalised its often a headline. The term 'new' also has a similar pattern, where sometimes its used as a heading, also shown in a capitalised format.
 
+I found this preliminary title analysis in R also useful to understand the corpus a bit better. I explored some of these top words using the KWIC function, for example 'opinion', to see whether they are relevant to the corpus or result from the opinion headline in news media being captured as text. I find that this is sometimes the case, when it appears capitalised its often a headline. The term 'new' also has a similar pattern, where sometimes its used as a heading, also shown in a capitalised format.
+
+#### Bigrams and IDF scores
+I then did some preprocessing through Python, using regex to remove these capitalised instances of Opinion and News. I also found and joined common bigrams, and calculated idf scores to find and remove common words that appear across most documents.
+
+<p align="center">
+  <img src=https://user-images.githubusercontent.com/89010445/167624066-8486b689-a6cb-4aae-a883-da61631321ca.PNG alt="Sublime's custom image"/, style="height:200px;">
+  <img src=https://user-images.githubusercontent.com/89010445/167623832-6c9b3f33-dafb-4e89-a325-1f985f69f9a8.PNG alt="Sublime's custom image"/, style="height:200px;">
+</p>
+
+
+#### Similarity Analysis (Iramuteq)
+I then exported the corpus of title content split by ideology with removed stopwords and common words, and imported it into Iramuteq.
+I set the parameters to at least 4 co-occurrences, and the layout algorith fruchterman reingold 
+<p align="center">
+  <img src=https://user-images.githubusercontent.com/89010445/167624696-2373ce4c-db6a-4d4e-8e08-bf66fb99712b.png alt="Sublime's custom image"/, style="width:700px;">
+</p>
+
+I did the same with titles from right leaning media:
+<p align="center">
+  <img src=https://user-images.githubusercontent.com/89010445/167624866-31c56c1e-910d-4da2-b040-67600ed1e982.png alt="Sublime's custom image"/, style="width:700px;">
+</p>
 
 
 
