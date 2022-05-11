@@ -1,6 +1,9 @@
-# Things to consider
+# Methodological Questions
 - I have noticed quotation marks being used to question the veracity of the word, i.e. "suppression" instead of suppression. How can we account for this?
-- training embedding model: how can we account for contextual semantic differences using a pre-trained model? I remember Monika saying you can tweak models to data of interest, how is this done?
+- Training word embedding and transformer models: I am finding it a bit tricky to reconcile the use of pre-trained models for data analysis with my understanding of language as a socially situated phenomenon that should be explored within its context. I am interested however in trying out fine-tuning the model to the data but how is this done exactly?
+- How to best shape/structure the data for analysis?
 
-- check Python modules for text analysis and functions associated to each
-- 
+# Research Questions
+- Which voices and narratives are amplified in media coverage? I'm thinking it could be interesting to conduct some kind of quotation analysis, using regex to identify quoted people and accompanying text. In the preliminary title analysis, I find left leaning media's discourse is dominated by Trump compared to right leaning media, which makes me think his false voter fraud narratives might have been amplified to rebute or challenge them.
+- I am also interested in the kinds of evidence that are brought into the debate, this could be a statement by an expert (or not) but also statistics from an organisation, so I was thinking maybe it could be interesting to use spacy and named entity recognition to identify and count top people/institutions mentioned in coverage. My intuition is that we might find a pattern between coverage by media ideology, I expect left leaning media will bring institutions like Brennan Centre for Justice or NGO's focusing on tackling racism in their coverage of voter ID. I tried doing this but for some reason spacy's "en_core_web_sm" doesnt load. It did kind of work when I tried it on a virtual environment but couldnt process all the data through there.
+
