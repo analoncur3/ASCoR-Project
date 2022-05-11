@@ -19,11 +19,6 @@ I also plotted articles by time to find potential spikes in coverage. We can see
 </p>
 
 
-## Exploring features
-- top words per Congress
-- top words per media
-- 
-
 ## Title analysis
 #### Top features
 To get a sense of the coverage content I analysed the titles using the quanteda package in R. I did some standard pre-processing to remove noise, I removed punctuation, symbols, stop words, compounded U S to U_S, north_carolina, removed the terms 'advertisement' and 'u' (which was left from emojis) and changed instances of 'id' to 'identification'. See below the top words: 
