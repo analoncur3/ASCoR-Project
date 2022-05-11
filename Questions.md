@@ -1,7 +1,7 @@
 # Methodological Questions
 - I have noticed quotation marks being used to question the veracity of the word, i.e. "suppression" instead of suppression. How can we account for this?
-- Training word embedding and transformer models: I am finding it a bit tricky to reconcile the use of pre-trained models for data analysis with my understanding of language as a socially situated phenomenon that should be explored within its context. I am interested however in trying out fine-tuning the model to the data but how is this done exactly?
-- How to best shape/structure the data for analysis?
+- Training word embedding and transformer models:I am interested in the approach of fine-tuning models to the data but how is this done exactly? Are there any good/interesting examples of research doing this?
+- How to best shape/structure the data for analysis? What do we understand as documents? what levels of analysis are we most interested in? Document, word, articles sorted by media ideology and congressional session? all of the above?
 
 # Research Questions
 - Which voices and narratives are amplified in media coverage? I'm thinking it could be interesting to conduct some kind of quotation analysis, using regex to identify quoted people and accompanying text. In the preliminary title analysis, I find left leaning media's discourse is dominated by Trump compared to right leaning media, which makes me think his false voter fraud narratives might have been amplified to rebute or challenge them.
