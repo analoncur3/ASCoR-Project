@@ -1,7 +1,7 @@
 ## Descriptive stats
 The following folder contains scripts used to explore the data. The tasks performed are:
 
-Document Level:
+Document/Article Level:
 - Plotting number of articles by time and Congressional session
 - Plotting lexical dispersion of key terms
 
