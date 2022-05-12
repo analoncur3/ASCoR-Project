@@ -47,10 +47,13 @@ We select mass-market/top news media identified in these studies.
 
 
 ## Methodology:
+#### Title Analysis
+- co-occurrence networks of titles after removing words with high idf scores (very common words used by both media)
+
 #### Overall Corpus Analysis (to find key frames / narratives structuring the voter ID debate)
 - similarity analysis comparing left vs right leaning media to understand key terms defining coverage from each (data: all)
 - calculate tf-idf scores on the dataframes divided by media type (left and right), and compare top terms per congressional session. (data: right and left)
 
 #### Voter ID Frames
-- target keyness analysis on word "identification" to understand the context surrounding this term of each media group (data: right and left)
-- explore word embedding of word "identification" using a similar approach to conText but with pre-trained embedding model 
+- target keyness analysis on word "identification" to understand the context surrounding this term of each media group (data: all)
+- explore word embedding of word "identification" using a similar approach to conText but with pre-trained embedding model fine-tuned to our data to understand changes in framing over time.
