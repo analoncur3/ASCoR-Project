@@ -41,19 +41,35 @@ We select mass-market/top news media identified in these studies.
 - **Key terms**: To find appropriate search terms, I used Mediacloud's ‘Explorer’ option to instantly analyse how digital news media covers voter fraud and voter suppression, the two partisan frames identified in the literature. I selected coverage during the 2016 US Presidential campaign period (August 1, 2016 – January 1, 2017), in U.S. Top Online News 2017 (Top 32 news websites of the year by August 2017 in the United States, according to data from comScore, Activate and Alexa) and cross-checked identical words in the top 10 words associated to each query. The presence of ‘voter ID’ and ‘ID’ as top terms in both the search terms “voter fraud” and “voter suppression” suggests using voter ID (and variations of it) as a key search term could be a good approach to identify frames.
 
 
-## Data Collection Strategy:
+## Methodology:
+#### Data Collection Strategy:
 - We collect urls via MediaCloud API and extract article data in Python using [NewsPlease](https://github.com/fhamborg/news-please)
 - We use NexisUni to extract article data in R using [LexisNexisTools](https://github.com/JBGruber/LexisNexisTools)
 
+#### 1. Data Pre-processing
+- Remove irrelevant words
+- Remove stopwords
+- Remove words with low IDF scores
+- Compound common bigrams and names
+- Combine terms: id and identification, gov and government
+- Treat "suppression" as no_suppression
 
-## Methodology:
-#### Title Analysis
-- co-occurrence networks of titles after removing words with high idf scores (very common words used by both media)
+#### 2. Data exploration
+- Count articles per media ideology
+- Count articles per congressional session
+- Count articles per day
+- Word counts
 
-#### Overall Corpus Analysis (to find key topic / frames / narratives structuring the voter ID debate)
-- similarity analysis comparing left vs right leaning media to understand key terms defining coverage from each (data: all)
+#### 2. Analysis
+### Title Analysis
+- co-occurrence networks of titles after removing words with low idf scores (very common words used by both media)
+- similarity analysis comparing left vs right leaning media to understand key terms defining coverage from each
+
+
+### Overall Corpus Analysis (to find key topic / frames / narratives structuring the voter ID debate)
 - calculate tf-idf scores on the dataframes divided by media type (left and right), and compare top terms per congressional session. (data: right and left)
+- similarity analysis comparing left vs right leaning media to understand key terms defining coverage from each (data: all)
 
-#### Voter ID Frames
+### Voter ID Frames
 - target keyness analysis on word "identification" to understand the context surrounding this term of each media group (data: all)
 - explore word embedding of word "identification" using a similar approach to conText but with pre-trained embedding model fine-tuned to our data to understand changes in framing over time.
