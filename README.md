@@ -42,11 +42,11 @@ We select mass-market/top news media identified in these studies.
 
 
 ## Methodology:
-#### Data Collection Strategy:
+### 1. Data Collection
 - We collect urls via MediaCloud API and extract article data in Python using [NewsPlease](https://github.com/fhamborg/news-please)
 - We use NexisUni to extract article data in R using [LexisNexisTools](https://github.com/JBGruber/LexisNexisTools)
 
-#### 1. Data Pre-processing
+### 2. Data Pre-processing
 - Remove irrelevant words
 - Remove stopwords
 - Remove words with low IDF scores
@@ -54,22 +54,22 @@ We select mass-market/top news media identified in these studies.
 - Combine terms: id and identification, gov and government
 - Treat "suppression" as no_suppression
 
-#### 2. Data exploration
+### 3. Data exploration
 - Count articles per media ideology
 - Count articles per congressional session
 - Count articles per day
 - Word counts
 
-#### 2. Analysis
-### Title Analysis
+### 4. Analysis
+#### Title Analysis
 - co-occurrence networks of titles after removing words with low idf scores (very common words used by both media)
 - similarity analysis comparing left vs right leaning media to understand key terms defining coverage from each
 
-
-### Overall Corpus Analysis (to find key topic / frames / narratives structuring the voter ID debate)
-- calculate tf-idf scores on the dataframes divided by media type (left and right), and compare top terms per congressional session. (data: right and left)
+#### Overall Corpus/text Analysis (to find key topic / frames / narratives structuring the voter ID debate)
+- calculate tf-idf scores on the dataframes divided by media type (left and right), and compare top key terms per congressional session. (data: right and left)
 - similarity analysis comparing left vs right leaning media to understand key terms defining coverage from each (data: all)
+- Named Entity Recognition to find which actors are brought to the debate
 
-### Voter ID Frames
+#### Voter ID Frames
 - target keyness analysis on word "identification" to understand the context surrounding this term of each media group (data: all)
-- explore word embedding of word "identification" using a similar approach to conText but with pre-trained embedding model fine-tuned to our data to understand changes in framing over time.
+- explore word embedding of word "identification" and word similarity scores per congressional session
