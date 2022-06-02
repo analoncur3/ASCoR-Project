@@ -71,3 +71,6 @@ These outputs further highlight the similarity between political speeches on vot
 
 
 ## Keywords (TF-IDF and keyness)
+
+### Shifterator
+To check differences in language by media type, I used the package shifterator, which provides functionality for constructing word shift graphs, vertical bart charts that quantify which words contribute to a pairwise difference between two texts and how they contribute. 
