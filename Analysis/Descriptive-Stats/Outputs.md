@@ -74,3 +74,9 @@ These outputs further highlight the similarity between political speeches on vot
 
 ### Shifterator
 To check differences in language by media type, I used the package shifterator, which provides functionality for constructing word shift graphs, vertical bart charts that quantify which words contribute to a pairwise difference between two texts and how they contribute. 
+<p align="center">
+  <img src= https://user-images.githubusercontent.com/89010445/171623262-8ac06fe6-9052-4325-9dfd-55e07c9ff950.png alt="Sublime's custom image"/, style="width:300px;">
+</p>
+
+We further find that left leaning media discuss voter ID in relation to voting rights, court, and law.
+I'm finding an interesting legal framing of voter ID by democrats/left leaning media that I hadnt thought about before. Right leaning media tend to discuss voter ID without relating it to the legal dimension, without mentioning its a 'law' or supreme court cases.
