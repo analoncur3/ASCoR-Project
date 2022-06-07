@@ -4,8 +4,9 @@
 2. remove irrelevant words (ads, embedded videos, Opinion)
 3. remove words with low idf scores - words appearing in most documents so not adding much
 5. remove common stopwords
-6. change words: id -> identification, usa -> united states, donald trump -> trump
-7. compound bigrams and names
+6. compound bigrams and names
+7. change words: id -> identification, usa -> united states, donald trump -> trump
+
 
 
 ## Descriptive stats
