@@ -23,6 +23,9 @@ Headline Analysis:
 Word level:
 - Find top bigrams
 - Find top words
-- Find top entities/people (POS tagging)
 - Pre-processing
 
+## Analysis
+Keyword Analysis, Tf-idf shifts over time
+framing of voter ID
+Find top entities/people (POS tagging)
