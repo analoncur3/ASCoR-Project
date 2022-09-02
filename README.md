@@ -63,13 +63,11 @@ We select mass-market/top news media identified in these studies.
 ### 4. Analysis
 #### Title Analysis
 - co-occurrence networks of titles after removing words with low idf scores (very common words used by both media)
-- similarity analysis comparing left vs right leaning media to understand key terms defining coverage from each
 
-#### Overall Corpus/text Analysis (to find key topic / frames / narratives structuring the voter ID debate)
-- calculate tf-idf scores on the dataframes divided by media type (left and right), and compare top key terms per congressional session. (data: right and left)
-- similarity analysis comparing left vs right leaning media to understand key terms defining coverage from each (data: all)
-- Named Entity Recognition to find which actors are brought to the debate
+#### Overall Corpus/text Analysis (to find key topics / events / narratives structuring the voter ID debate)
+- Compare how the significance of key terms changes over time through tf-idf scores per month (data: right and left).
+- Shifterator analysis comparing left vs right leaning media to understand significant terms defining coverage from each set of media.
+- Networks displaying shifterator metrics 
 
-#### Voter ID Frames
-- target keyness analysis on word "identification" to understand the context surrounding this term of each media group (data: all)
-- explore word embedding of word "identification" and word similarity scores per congressional session
+#### Voter ID
+- word embeddings for right and left media to find words in the context of 'id'.
