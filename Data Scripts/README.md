@@ -9,3 +9,4 @@ This folder contains:
 | url-to-medianame.Rmd       | This script identified the media source from the urls       |
 | NexisUni-download-LexisNexisTools.Rmd   | This script uses the library LexisNexisTools to get article data from *The New York Times* via NexisUni        |
 | mediacloud-nexis-data-merge.md   | This script merges the mediacloud with the nexisuni data        |
+| Data Update.md   | Step by step process of gathering data        |
